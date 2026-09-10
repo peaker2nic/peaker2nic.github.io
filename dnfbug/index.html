@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dnfbug大全-DNF游戏漏洞与BUG百科资讯指南</title>
+    <meta name="description" content="dnfbug大全致力于整理和分享DNF地下城与勇士游戏中的常见BUG、游戏漏洞、异常问题及官方修复动态，提供专业的游戏问题解答与资讯指南。">
+    <meta name="keywords" content="dnfbug大全,DNF,地下城与勇士,游戏漏洞,游戏BUG,游戏攻略,问题修复">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f4f6f9;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* header */
+        .site-header {
+            background: linear-gradient(135deg, #0b1a2e 0%, #152b47 100%);
+            padding: 18px 0;
+            border-bottom: 4px solid #e8a33d;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #e8a33d;
+            background: #0b1a2e;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 2px solid #e8a33d;
+            box-shadow: 0 0 15px rgba(232, 163, 61, 0.3);
+        }
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #aab8c5;
+            letter-spacing: 2px;
+        }
+        .header-search {
+            display: flex;
+            gap: 8px;
+        }
+        .header-search input {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 30px;
+            width: 240px;
+            background: #1e3a5f;
+            color: #fff;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        .header-search input::placeholder {
+            color: #8fa3b8;
+        }
+        .header-search button {
+            background: #e8a33d;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 22px;
+            font-weight: 700;
+            color: #0b1a2e;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        .header-search button:hover {
+            background: #f0b85c;
+        }
+        /* nav */
+        .main-nav {
+            background: #0e2238;
+            border-bottom: 1px solid #1d3a5a;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links li a {
+            display: block;
+            padding: 14px 22px;
+            color: #cfdce6;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.25s;
+        }
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #e8a33d;
+            border-bottom-color: #e8a33d;
+            background: rgba(232, 163, 61, 0.05);
+        }
+        /* hero 首屏 */
+        .hero-section {
+            background: linear-gradient(145deg, #122c44 0%, #1a3a5c 100%);
+            padding: 50px 0 45px;
+            margin-bottom: 35px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-content h2 {
+            font-size: 2.4rem;
+            color: #fff;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .hero-content h2 span {
+            color: #e8a33d;
+            border-bottom: 3px solid #e8a33d;
+        }
+        .hero-content p {
+            color: #b8cbd9;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 12px 20px;
+            border-radius: 12px;
+            border-left: 4px solid #e8a33d;
+        }
+        .stat-item strong {
+            font-size: 1.5rem;
+            color: #fff;
+            display: block;
+        }
+        .stat-item span {
+            color: #8fa3b8;
+            font-size: 0.85rem;
+        }
+        .hero-alert {
+            background: rgba(232, 163, 61, 0.12);
+            border: 1px solid rgba(232, 163, 61, 0.3);
+            padding: 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(4px);
+        }
+        .hero-alert h3 {
+            color: #e8a33d;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-alert ul {
+            list-style: none;
+            color: #d5e0e8;
+        }
+        .hero-alert li {
+            padding: 6px 0;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        .hero-alert li:last-child {
+            border-bottom: none;
+        }
+        /* 主内容区 */
+        .content-area {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+            margin-bottom: 45px;
+        }
+        .main-content {
+            min-width: 0;
+        }
+        /* 最新bug列表 */
+        .section-block {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+        }
+        .section-title h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0e2238;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title h3 .badge {
+            background: #e8a33d;
+            color: #0e2238;
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        .more-link {
+            color: #2a6fb0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .more-link:hover {
+            text-decoration: underline;
+        }
+        /* bug卡片 */
+        .bug-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .bug-item {
+            border: 1px solid #e8edf2;
+            border-radius: 14px;
+            padding: 18px 20px;
+            transition: all 0.25s;
+            background: #fafcfe;
+            border-left: 5px solid #2a6fb0;
+        }
+        .bug-item.high {
+            border-left-color: #d64545;
+        }
+        .bug-item.medium {
+            border-left-color: #e8a33d;
+        }
+        .bug-item.low {
+            border-left-color: #5a8f5a;
+        }
+        .bug-item:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+            background: #fff;
+        }
+        .bug-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .bug-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e2a3a;
+        }
+        .bug-tag {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            background: #eef2f6;
+            color: #4a5a6a;
+        }
+        .bug-tag.severity-high {
+            background: #fde8e8;
+            color: #b02a2a;
+        }
+        .bug-tag.severity-medium {
+            background: #fdf3e3;
+            color: #a06a10;
+        }
+        .bug-tag.severity-low {
+            background: #e6f4e6;
+            color: #2f6b2f;
+        }
+        .bug-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: #68788a;
+            margin: 10px 0 6px;
+            flex-wrap: wrap;
+        }
+        .bug-desc {
+            font-size: 0.95rem;
+            color: #3a4a5a;
+            margin-top: 6px;
+        }
+        .bug-desc a {
+            color: #2a6fb0;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .bug-desc a:hover {
+            text-decoration: underline;
+        }
+        /* 分类卡片 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .category-card {
+            background: #f0f4f8;
+            border-radius: 14px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #e0e8ef;
+        }
+        .category-card:hover {
+            border-color: #2a6fb0;
+            background: #e8f0f8;
+            transform: translateY(-3px);
+        }
+        .category-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+        .category-card h4 {
+            font-size: 1rem;
+            color: #0e2238;
+            margin-bottom: 6px;
+        }
+        .category-card p {
+            font-size: 0.8rem;
+            color: #5a6a7a;
+            line-height: 1.4;
+        }
+        /* 修复公告时间线 */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            bottom: 5px;
+            width: 3px;
+            background: linear-gradient(180deg, #2a6fb0, #e8a33d);
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 22px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2a6fb0;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 3px rgba(42, 111, 176, 0.2);
+        }
+        .timeline-item.fixed::before {
+            background: #3f9e4d;
+            box-shadow: 0 0 0 3px rgba(63, 158, 77, 0.2);
+        }
+        .timeline-date {
+            font-size: 0.8rem;
+            color: #e8a33d;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .timeline-content {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 14px 18px;
+            border-left: 4px solid #2a6fb0;
+        }
+        .timeline-content.fixed {
+            border-left-color: #3f9e4d;
+        }
+        .timeline-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #1e2a3a;
+        }
+        .timeline-content p {
+            font-size: 0.88rem;
+            color: #4a5a6a;
+        }
+        .timeline-status {
+            display: inline-block;
+            background: #2a6fb0;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-top: 6px;
+        }
+        .timeline-status.fixed {
+            background: #3f9e4d;
+        }
+        /* 侧边栏 */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+        }
+        .side-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+        .side-card h3 {
+            font-size: 1.2rem;
+            color: #0e2238;
+            border-left: 4px solid #e8a33d;
+            padding-left: 12px;
+            margin-bottom: 16px;
+        }
+        .hot-list {
+            list-style: none;
+        }
+        .hot-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eef2f6;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+        .hot-rank {
+            background: #eef2f6;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #2a6fb0;
+            flex-shrink: 0;
+        }
+        .hot-rank.top3 {
+            background: #e8a33d;
+            color: #fff;
+        }
+        .hot-list li a {
+            text-decoration: none;
+            color: #1e2a3a;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .hot-list li a:hover {
+            color: #2a6fb0;
+        }
+        .side-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .side-tags a {
+            background: #eef2f6;
+            color: #2a5a7a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .side-tags a:hover {
+            background: #2a6fb0;
+            color: #fff;
+        }
+        .notice-box {
+            background: #fef9ef;
+            border: 1px solid #f0dbb5;
+            border-radius: 14px;
+            padding: 16px;
+            font-size: 0.88rem;
+            color: #6a5a3a;
+        }
+        .notice-box strong {
+            color: #b8860b;
+        }
+        /* 安全提示 */
+        .safe-tips {
+            background: linear-gradient(135deg, #fdf6ec, #faf0e0);
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 6px solid #e8a33d;
+        }
+        .safe-tips h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #5a3e1a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .safe-tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .safe-tip-item {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #e8dcc8;
+        }
+        .safe-tip-item h4 {
+            font-size: 1rem;
+            color: #5a3e1a;
+            margin-bottom: 8px;
+        }
+        .safe-tip-item p {
+            font-size: 0.85rem;
+            color: #6a5a42;
+        }
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            border: 1px solid #e8edf2;
+            border-radius: 12px;
+            padding: 18px 20px;
+            background: #fafcfe;
+        }
+        .faq-item details {
+            cursor: pointer;
+        }
+        .faq-item summary {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1e2a3a;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #2a6fb0;
+            font-weight: 400;
+        }
+        .faq-item details[open] summary::after {
+            content: '−';
+        }
+        .faq-answer {
+            margin-top: 12px;
+            font-size: 0.92rem;
+            color: #4a5a6a;
+            padding-top: 10px;
+            border-top: 1px dashed #d0dae2;
+        }
+        /* footer */
+        .site-footer {
+            background: #0b1a2e;
+            color: #8fa3b8;
+            padding: 35px 0 20px;
+            margin-top: 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+        .footer-about h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .footer-about p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links li {
+            margin: 8px 0;
+        }
+        .footer-links a {
+            color: #8fa3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .footer-links a:hover {
+            color: #e8a33d;
+        }
+        .footer-bottom {
+            border-top: 1px solid #1a2a3a;
+            padding-top: 18px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5a6a7a;
+        }
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .content-area {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .safe-tips-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            .header-search {
+                width: 100%;
+            }
+            .header-search input {
+                flex: 1;
+                width: auto;
+            }
+            .nav-links {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            .nav-links li a {
+                white-space: nowrap;
+                padding: 12px 16px;
+            }
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .safe-tips-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .section-block {
+                padding: 18px;
+            }
+            .bug-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .stat-item {
+                padding: 10px 14px;
+            }
+            .stat-item strong {
+                font-size: 1.2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 0 12px;
+            }
+            .category-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .category-card {
+                padding: 15px 8px;
+            }
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .hero-stats {
+                gap: 12px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <!-- 页眉 -->
+    <header class="site-header">
+        <div class="wrapper header-inner">
+            <div class="logo-area">
+                <div class="logo-icon">BUG</div>
+                <div class="logo-text">
+                    <h1>dnfbug大全</h1>
+                    <p>地下城与勇士问题百科</p>
+                </div>
+            </div>
+            <div class="header-search">
+                <input type="text" placeholder="搜索BUG、版本或关键词...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav class="main-nav">
+        <div class="wrapper">
+            <ul class="nav-links">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">最新BUG</a></li>
+                <li><a href="#">副本异常</a></li>
+                <li><a href="#">职业问题</a></li>
+                <li><a href="#">装备漏洞</a></li>
+                <li><a href="#">系统故障</a></li>
+                <li><a href="#">修复公告</a></li>
+                <li><a href="#">安全警示</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 首屏 -->
+    <section class="hero-section">
+        <div class="wrapper hero-grid">
+            <div class="hero-content">
+                <h2>汇集 DNF 已知 <span>BUG 与异常</span> 全攻略</h2>
+                <p>专注整理地下城与勇士各版本中出现的游戏漏洞、界面卡死、掉线、物品异常、技能失效等问题，提供问题成因、临时解决方法和官方修复动态，助你更好应对游戏中的突发状况。</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>300+</strong>
+                        <span>收录BUG条目</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>12</strong>
+                        <span>问题分类</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>每日更新</strong>
+                        <span>最新反馈</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-alert">
+                <h3>⚠️ 近期高发问题提醒</h3>
+                <ul>
+                    <li>✦ 110级副本“贵族机要”偶发奖励无法领取</li>
+                    <li>✦ 部分职业觉醒技能在特定地图消失</li>
+                    <li>✦ 跨区组队时频道延迟导致掉线</li>
+                    <li>✦ 拍卖行搜索部分道具显示异常</li>
+                    <li>✦ 云上长安战票无法正常使用</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主内容区 -->
+    <div class="wrapper content-area">
+        <main class="main-content">
+            <!-- 最新BUG列表 -->
+            <section class="section-block">
+                <div class="section-title">
+                    <h3><span class="badge">LIVE</span> 最新收录 BUG</h3>
+                    <a href="#" class="more-link">查看全部 →</a>
+                </div>
+                <div class="bug-list">
+                    <article class="bug-item high">
+                        <div class="bug-header">
+                            <span class="bug-title">暗殿骑士 45级技能“暗影盛宴”伤害丢失</span>
+                            <span class="bug-tag severity-high">严重</span>
+                        </div>
+                        <div class="bug-meta">
+                            <span>📅 2025-02-18</span>
+                            <span>📂 职业问题</span>
+                            <span>👁️ 2.3k 浏览</span>
+                        </div>
+                        <p class="bug-desc">更新后部分玩家反馈暗殿骑士释放暗影盛宴时，对霸体怪物伤害判定异常，有时完全不造成伤害。目前官方暂未回应，临时可尝试切换武器再释放。<a href="#">阅读详情</a></p>
+                    </article>
+                    <article class="bug-item medium">
+                        <div class="bug-header">
+                            <span class="bug-title">“风暴逆鳞”副本奖励宝箱无法开启</span>
+                            <span class="bug-tag severity-medium">中等</span>
+                        </div>
+                        <div class="bug-meta">
+                            <span>📅 2025-02-17</span>
+                            <span>📂 副本异常</span>
+                            <span>👁️ 1.8k 浏览</span>
+                        </div>
+                        <p class="bug-desc">通关风暴逆鳞后，部分队伍成员出现宝箱交互无反应的问题，推测与队长网络延迟有关。重选频道后多数可恢复正常。<a href="#">阅读详情</a></p>
+                    </article>
+                    <article class="bug-item low">
+                        <div class="bug-header">
+                            <span class="bug-title">装备词典搜索“蓝灵绿玉石”无结果</span>
+                            <span class="bug-tag severity-low">轻微</span>
+                        </div>
+                        <div class="bug-meta">
+                            <span>📅 2025-02-16</span>
+                            <span>📂 系统故障</span>
+                            <span>👁️ 956 浏览</span>
+                        </div>
+                        <p class="bug-desc">装备词典中部分自定义装备名称无法通过搜索找到，但通过装备图鉴可正常查看。已反馈官方，等待后续优化。<a href="#">阅读详情</a></p>
+                    </article>
+                    <article class="bug-item high">
+                        <div class="bug-header">
+                            <span class="bug-title">游戏内“安全组件”误报导致强制下线</span>
+                            <span class="bug-tag severity-high">严重</span>
+                        </div>
+                        <div class="bug-meta">
+                            <span>📅 2025-02-15</span>
+                            <span>📂 系统故障</span>
+                            <span>👁️ 5.1k 浏览</span>
+                        </div>
+                        <p class="bug-desc">部分玩家运行游戏时被安全组件误判为第三方工具，导致账号强制下线。目前建议关闭后台软件并重启电脑，官方正在修复中。<a href="#">阅读详情</a></p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- BUG分类导航 -->
+            <section class="section-block">
+                <div class="section-title">
+                    <h3>📂 BUG 分类查找</h3>
+                    <a href="#" class="more-link">全部分类</a>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="icon">⚔️</div>
+                        <h4>职业异常</h4>
+                        <p>技能失效、被动异常、觉醒BUG</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">🏰</div>
+                        <h4>副本问题</h4>
+                        <p>奖励无法领取、怪物卡住、机制失效</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">🛡️</div>
+                        <h4>装备漏洞</h4>
+                        <p>词条异常、强化消失、属性错误</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">💻</div>
+                        <h4>系统故障</h4>
+                        <p>闪退、掉线、安全组件误报</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">🏷️</div>
+                        <h4>拍卖行/交易</h4>
+                        <p>搜索异常、金币显示、物品锁定</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">🌐</div>
+                        <h4>频道/组队</h4>
+                        <p>延迟、人数爆满、邀请失败</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">🎁</div>
+                        <h4>活动BUG</h4>
+                        <p>奖励未到账、活动页面错误</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="icon">🛠️</div>
+                        <h4>其他异常</h4>
+                        <p>图形错误、界面错位、音频问题</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 修复公告时间线 -->
+            <section class="section-block">
+                <div class="section-title">
+                    <h3>🔧 官方修复动态</h3>
+                    <a href="#" class="more-link">全部公告</a>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item fixed">
+                        <div class="timeline-date">2025-02-18 更新</div>
+                        <div class="timeline-content fixed">
+                            <h4>“军团本”卡隆复活机制异常修复</h4>
+                            <p>修复了卡隆在特定情况下复活后无敌的问题，并补偿全体玩家复活币×3。</p>
+                            <span class="timeline-status fixed">✅ 已修复</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025-02-17 反馈</div>
+                        <div class="timeline-content">
+                            <h4>“缪斯” buff 图标显示错误</h4>
+                            <p>官方已确认该显示异常，不影响实际增益效果，计划下周热更新修复。</p>
+                            <span class="timeline-status">⏳ 处理中</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item fixed">
+                        <div class="timeline-date">2025-02-16 更新</div>
+                        <div class="timeline-content fixed">
+                            <h4>“风暴幽城”入场材料消耗异常</h4>
+                            <p>修复了部分玩家入场时多扣材料的问题，已通过邮件补发差额材料。</p>
+                            <span class="timeline-status fixed">✅ 已修复</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025-02-14 反馈</div>
+                        <div class="timeline-content">
+                            <h4>“装备继承”偶尔失败且材料消失</h4>
+                            <p>目前正在定位，涉及装备继承系统的稳定性，建议暂时不要进行频繁继承操作。</p>
+                            <span class="timeline-status">⏳ 处理中</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 安全提示 -->
+            <section class="safe-tips">
+                <h3>🛡️ BUG 相关安全警示</h3>
+                <div class="safe-tips-grid">
+                    <div class="safe-tip-item">
+                        <h4>⚠️ 切勿利用漏洞</h4>
+                        <p>利用BUG获取非法收益可能导致封号、回档等处罚。遇到严重漏洞请通过官方渠道提交。</p>
+                    </div>
+                    <div class="safe-tip-item">
+                        <h4>🔒 保护账号安全</h4>
+                        <p>部分“BUG教程”可能诱导下载木马程序，务必通过正规网站查看信息，不点击不明链接。</p>
+                    </div>
+                    <div class="safe-tip-item">
+                        <h4>📢 及时反馈</h4>
+                        <p>若发现新的游戏异常，建议在官方论坛或客服中心提交详细描述，帮助官方快速定位。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="section-block">
+                <div class="section-title">
+                    <h3>❓ 常见疑问解答</h3>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <details>
+                            <summary>游戏中遇到BUG应该怎么提交反馈？</summary>
+                            <div class="faq-answer">
+                                建议先截图或录制视频，记录发生时间、操作步骤和角色信息。然后通过DNF官方客服中心或官方论坛的“BUG反馈”板块提交，附上详细描述有助于加快处理速度。也可以在dnfbug大全的对应条目下留言，我们会汇总转达。
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>为什么有些BUG长时间不修复？</summary>
+                            <div class="faq-answer">
+                                BUG修复需要经过复现、定位、修复、测试等多个流程。部分问题可能涉及底层代码或需要与版本更新同步上线，因此周期较长。但涉及经济系统或严重影响游戏平衡的漏洞通常会被优先处理。
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>利用BUG会不会被封号？</summary>
+                            <div class="faq-answer">
+                                根据DNF运营团队规则，明知是BUG仍故意利用并获取大量收益的账号可能面临临时封禁、道具回收甚至永久封禁的处罚。建议不要尝试卡BUG，遇到问题直接反馈才是正确方式。
+                            </div>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>BUG导致我的物品消失了怎么办？</summary>
+                            <div class="faq-answer">
+                                先不要慌张，检查是否在邮件、仓库或账号金库中。若确认丢失，尽快通过客服系统提交工单，提供消失时间、物品名称和大致信息。官方核实后通常会进行补发，但需要一定时间。
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="side-card">
+                <h3>🔥 热门BUG话题</h3>
+                <ul class="hot-list">
+                    <li>
+                        <span class="hot-rank top3">1</span>
+                        <a href="#">“奶妈”BUFF偶发失效问题汇总</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank top3">2</span>
+                        <a href="#">“巴卡尔团本”红队掉线补偿说明</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank top3">3</span>
+                        <a href="#">装备“自定义词条”转移消失BUG</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">4</span>
+                        <a href="#">“未央幻境”门票异常扣减记录</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">5</span>
+                        <a href="#">角色“移动速度”显示错误</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">6</span>
+                        <a href="#">“附魔”后属性不生效</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="side-card">
+                <h3>🏷️ 热门标签</h3>
+                <div class="side-tags">
+                    <a href="#">110级版本</a>
+                    <a href="#">巴卡尔</a>
+                    <a href="#">自定义装备</a>
+                    <a href="#">掉线</a>
+                    <a href="#">安全组件</a>
+                    <a href="#">觉醒技能</a>
+                    <a href="#">拍卖行</a>
+                    <a href="#">组队</a>
+                    <a href="#">活动BUG</a>
+                    <a href="#">补发</a>
+                    <a href="#">职业平衡</a>
+                    <a href="#">频道延迟</a>
+                </div>
+            </div>
+
+            <div class="side-card">
+                <h3>📌 官方公告提醒</h3>
+                <div class="notice-box">
+                    <strong>重要提醒：</strong> 近期发现有第三方网站冒充官方发布“BUG利用教程”，请各位冒险家提高警惕。所有官方修复说明均以游戏内公告及dnfbug大全首页发布为准。切勿相信付费修复BUG服务，谨防上当。
+                </div>
+            </div>
+
+            <div class="side-card">
+                <h3>📬 问题投稿</h3>
+                <p style="font-size:0.88rem; color:#4a5a6a; margin-bottom:12px;">如果你发现了新的游戏BUG或异常，欢迎投稿给我们，让更多玩家了解情况。</p>
+                <a href="#" style="display:inline-block; background:#2a6fb0; color:#fff; padding:8px 20px; border-radius:25px; text-decoration:none; font-size:0.9rem; font-weight:600;">我要反馈BUG</a>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="wrapper">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h4>关于 dnfbug大全</h4>
+                    <p>本站是专注于DNF地下城与勇士游戏问题整理的资料站，旨在为玩家提供便捷的BUG查询、异常问题说明及官方修复动态。所有内容均来自玩家反馈和官方公告，仅供参考。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">最新收录</a></li>
+                        <li><a href="#">热门BUG</a></li>
+                        <li><a href="#">修复公告</a></li>
+                        <li><a href="#">安全警示</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">DNF官方网站</a></li>
+                        <li><a href="#">DNF官方论坛</a></li>
+                        <li><a href="#">客服中心</a></li>
+                        <li><a href="#">版本更新公告</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 dnfbug大全 所有内容仅供参考，非官方站点 | 请合理游戏，拒绝利用漏洞</p>
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
